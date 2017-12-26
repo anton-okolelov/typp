@@ -1,0 +1,20 @@
+{
+  parserClass="com.typpplugin.parser.TyppParser"
+
+  extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+  psiClassPrefix="Typp"
+  psiImplClassSuffix="Impl"
+  psiPackage="com.typpplugin.psi"
+  psiImplPackage="com.typpplugin.psi.impl"
+
+  elementTypeHolderClass="com.typpplugin.psi.TyppTypes"
+  elementTypeClass="com.typpplugin.psi.TyppElementType"
+  tokenTypeClass="com.typpplugin.psi.TyppTokenType"
+}
+
+typpFile ::= (HTML_CODE|php_code)*
+
+php_code ::= PHP_TAG expression* PHP_END_TAG?
+
+expression ::= WHITESPACE? OPERATOR WHITESPACE STRING_LITERAL WHITESPACE? SEMICOLON
