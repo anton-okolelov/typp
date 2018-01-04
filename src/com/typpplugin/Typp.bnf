@@ -1,5 +1,6 @@
 {
   parserClass="com.typpplugin.parser.TyppParser"
+  parserUtilClass="com.typpplugin.parser.TyppParserUtil"
 
   extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
 

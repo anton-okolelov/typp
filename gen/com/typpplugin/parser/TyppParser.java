@@ -4,7 +4,7 @@ package com.typpplugin.parser;
 import com.intellij.lang.PsiBuilder;
 import com.intellij.lang.PsiBuilder.Marker;
 import static com.typpplugin.psi.TyppTypes.*;
-import static com.intellij.lang.parser.GeneratedParserUtilBase.*;
+import static com.typpplugin.parser.TyppParserUtil.*;
 import com.intellij.psi.tree.IElementType;
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.tree.TokenSet;
