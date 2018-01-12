@@ -40,14 +40,14 @@ public class TyppParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // WHITESPACE? OPERATOR WHITESPACE STRING_LITERAL WHITESPACE? SEMICOLON
+  // WHITESPACE? ECHO WHITESPACE STRING_LITERAL WHITESPACE? SEMICOLON
   public static boolean expression(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "expression")) return false;
-    if (!nextTokenIs(b, "<expression>", OPERATOR, WHITESPACE)) return false;
+    if (!nextTokenIs(b, "<expression>", ECHO, WHITESPACE)) return false;
     boolean r;
     Marker m = enter_section_(b, l, _NONE_, EXPRESSION, "<expression>");
     r = expression_0(b, l + 1);
-    r = r && consumeTokens(b, 0, OPERATOR, WHITESPACE, STRING_LITERAL);
+    r = r && consumeTokens(b, 0, ECHO, WHITESPACE, STRING_LITERAL);
     r = r && expression_4(b, l + 1);
     r = r && consumeToken(b, SEMICOLON);
     exit_section_(b, l, m, r, false, null);

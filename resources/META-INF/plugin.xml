@@ -26,10 +26,12 @@
 
   <extensions defaultExtensionNs="com.intellij">
     <fileTypeFactory implementation="com.typpplugin.TyppFileTypeFactory"/>
+    <lang.parserDefinition language="Typp" implementationClass="com.typpplugin.TyppParserDefinition"/>
   </extensions>
 
   <actions>
     <!-- Add your actions here -->
   </actions>
+
 
 </idea-plugin>

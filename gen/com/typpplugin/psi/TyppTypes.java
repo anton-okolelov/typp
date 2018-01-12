@@ -11,8 +11,8 @@ public interface TyppTypes {
   IElementType EXPRESSION = new TyppElementType("EXPRESSION");
   IElementType PHP_CODE = new TyppElementType("PHP_CODE");
 
+  IElementType ECHO = new TyppTokenType("ECHO");
   IElementType HTML_CODE = new TyppTokenType("HTML_CODE");
-  IElementType OPERATOR = new TyppTokenType("OPERATOR");
   IElementType PHP_END_TAG = new TyppTokenType("PHP_END_TAG");
   IElementType PHP_TAG = new TyppTokenType("PHP_TAG");
   IElementType SEMICOLON = new TyppTokenType("SEMICOLON");

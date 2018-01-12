@@ -22,15 +22,17 @@ import com.intellij.psi.TokenType;
 %eof}
 
 WHITE_SPACE=[\ \n\r\t]
-PHP_TAG=<?php
 
 %state WAITING_VALUE
 
 %%
 
-<YYINITIAL> {WHITE_SPACE}                           { yybegin(YYINITIAL); return TyppTypes.WHITESPACE; }
+<YYINITIAL> {
+    {WHITE_SPACE}                           { return TyppTypes.WHITESPACE; }
+    "<?php"                                 { return TyppTypes.PHP_TAG; }
+    "echo"                                  { return TyppTypes.ECHO; }
+}
 
-<YYINITIAL> {PHP_TAG}                                { yybegin(YYINITIAL); return TyppTypes.PHP_TAG; }
 
 //<YYINITIAL> {SEPARATOR}                                     { yybegin(WAITING_VALUE); return TyppTypes.SEPARATOR; }
 

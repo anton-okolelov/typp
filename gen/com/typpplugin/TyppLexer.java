@@ -54,7 +54,8 @@ class TyppLexer implements FlexLexer {
 
   /* The ZZ_CMAP_A table has 256 entries */
   static final char ZZ_CMAP_A[] = zzUnpackCMap(
-    "\11\0\2\1\2\0\1\1\22\0\1\1\33\0\1\2\53\0\1\4\7\0\1\3\217\0");
+    "\11\0\2\1\2\0\1\1\22\0\1\1\33\0\1\2\2\0\1\3\43\0\1\7\1\0\1\6\2\0\1\5\6\0\1"+
+    "\10\1\4\217\0");
 
   /** 
    * Translates DFA states to action switch labels.
@@ -62,10 +63,10 @@ class TyppLexer implements FlexLexer {
   private static final int [] ZZ_ACTION = zzUnpackAction();
 
   private static final String ZZ_ACTION_PACKED_0 =
-    "\2\0\1\1\3\0\1\2";
+    "\2\0\1\1\7\0\1\2\1\3";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[7];
+    int [] result = new int[12];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -90,10 +91,11 @@ class TyppLexer implements FlexLexer {
   private static final int [] ZZ_ROWMAP = zzUnpackRowMap();
 
   private static final String ZZ_ROWMAP_PACKED_0 =
-    "\0\0\0\5\0\5\0\12\0\17\0\24\0\5";
+    "\0\0\0\11\0\11\0\22\0\33\0\44\0\55\0\66"+
+    "\0\77\0\110\0\11\0\11";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[7];
+    int [] result = new int[12];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -116,11 +118,12 @@ class TyppLexer implements FlexLexer {
   private static final int [] ZZ_TRANS = zzUnpackTrans();
 
   private static final String ZZ_TRANS_PACKED_0 =
-    "\1\0\1\3\1\4\1\5\11\0\1\5\5\0\1\6"+
-    "\3\0\1\7\1\0";
+    "\1\0\1\3\1\4\3\0\1\5\16\0\1\6\14\0"+
+    "\1\7\5\0\1\10\11\0\1\11\10\0\1\12\13\0"+
+    "\1\13\4\0\1\14\4\0";
 
   private static int [] zzUnpackTrans() {
-    int [] result = new int[25];
+    int [] result = new int[81];
     int offset = 0;
     offset = zzUnpackTrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -158,10 +161,10 @@ class TyppLexer implements FlexLexer {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\1\0\1\10\1\11\3\0\1\11";
+    "\1\0\1\10\1\11\7\0\2\11";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[7];
+    int [] result = new int[12];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -480,15 +483,20 @@ class TyppLexer implements FlexLexer {
       else {
         switch (zzAction < 0 ? zzAction : ZZ_ACTION[zzAction]) {
           case 1: 
-            { yybegin(YYINITIAL); return TyppTypes.WHITESPACE;
-            } 
-            // fall through
-          case 3: break;
-          case 2: 
-            { yybegin(YYINITIAL); return TyppTypes.PHP_TAG;
+            { return TyppTypes.WHITESPACE;
             } 
             // fall through
           case 4: break;
+          case 2: 
+            { return TyppTypes.ECHO;
+            } 
+            // fall through
+          case 5: break;
+          case 3: 
+            { return TyppTypes.PHP_TAG;
+            } 
+            // fall through
+          case 6: break;
           default:
             zzScanError(ZZ_NO_MATCH);
           }
